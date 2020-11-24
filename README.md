@@ -1,6 +1,6 @@
 # State Management Uygulaması
 
-Temel bir state yönetimi API uygulamasıdır. **_Task yaratma, State yaratma, Flow yaratma_** ve **task durumu güncelleme** işlemleri yapmaktadır.
+Temel bir state yönetimi API uygulamasıdır. **_Task yaratma, State yaratma, Flow yaratma_** ve **_ Task durumunu güncelleme, durumunu görüntüleme ve bir Task için t zamanındaki durumuna döndürülebilme_** işlemleri yapmaktadır.
 
 ## Hikaye
 
@@ -45,9 +45,13 @@ Farklı bir `Flow` yaratıp onun içerisinde de farklı tasklar yürütebilirim.
 
 ---
 
+Bir `Task` herhangi bir t anındaki durumuna geri döndürülebilir olmalıdır.
+
+---
+
 ### Teknik Açıklama
 
-Uygulama üzerindeki `Task`, `State`, `Flow` nesneleri `CREATE`, `READ`, `UPDATE`, `DELETE` işlemleri için API çağrıları kullanılacaktır.
+Uygulama üzerindeki `Task`, `State`, `Flow` nesneleri `CREATE`, `READ`, `UPDATE`, `DELETE` ve diğer işlemleri için API çağrıları kullanılacaktır.
 
 [Restful Methods](https://restfulapi.net/http-methods/)
 
@@ -55,11 +59,11 @@ Uygulama üzerindeki `Task`, `State`, `Flow` nesneleri `CREATE`, `READ`, `UPDATE
 
 **Teknolojiler**
 
-- Platform: .NET Core 2 ve üstü yada ASP.NET 4 veya üstü.
-- IoC Kütüphanesi: Herhangi bir IoC container kullanılabilir
+- Platform: .NET Core 2 ve üstü
+- IoC Kütüphanesi: Herhangi bir IoC container kullanılabilir.
 - ORM Kütüphanesi: Herhangi bir kütüphane kullanılabilir.
-- API Kütüphanesi: ASP.NET Core Web API ya da ASP.NET Web API.
-- Database: Herhangi bir relational database.
+- Database: Herhangi bir database.
+- API( ve kullanılan diğer toollar)  docker üzerinde run edilebilir.
 
 **Dependency Injection**
 
@@ -73,7 +77,12 @@ Uygulama üzerindeki `Task`, `State`, `Flow` nesneleri `CREATE`, `READ`, `UPDATE
 
 - Clean code güzel hazırlanmış bir pazar kahvaltısı gibidir.
 - Unit test yazmak hava biraz kapalı olsa bile yanına şemsiyesini alan bir insanın tutumu gibidir.
+- Bir entitynin durumuna event-centric yaklaşmak güzel bir bakış açısıdır.
+- Swagger yararlı bir API doc tooludur.
+
 
 ### Teslim
 
-Bu repository'i fork edip, kendi github hesabınız üzerinden geliştirmeyi yapınız. ve daha sonra geliştirmeyi yaptığınız reponun adresini erdem@proceedlabs.com adresine `Backend Developer - State Management Challange` başlığı ile yollayınız.
+- Bu repository'i fork edip, kendi Github hesabınız üzerinden geliştirmeyi yapınız. 
+- İlk comitinizi `Initial Commit` mesajıyla gönderiniz ve tüm projeyi max 4 gün içinde bitirmeniz beklenmektedir.
+- Projeyi tamamladığınızda reponun adresini erdem@proceedlabs.com adresine `Backend Developer - State Management Challange` başlığı ile yollayınız.

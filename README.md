@@ -1,6 +1,6 @@
 # State Management Uygulaması
 
-Temel bir state yönetimi API uygulamasıdır. **_Task yaratma, State yaratma, Flow yaratma_** ve **_ Task durumunu güncelleme, durumunu görüntüleme ve bir Task için t zamanındaki durumuna döndürülebilme_** işlemleri yapmaktadır.
+Temel bir state yönetimi API uygulamasıdır. **_Task yaratma, State yaratma, Flow yaratma_** ve **Task durumunu güncelleme, durumunu görüntüleme ve bir Task için t zamanındaki durumuna döndürülebilme** işlemleri yapmaktadır.
 
 ## Hikaye
 

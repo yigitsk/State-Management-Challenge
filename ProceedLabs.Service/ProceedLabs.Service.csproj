@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="morelinq" Version="3.3.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ProceedLabs.Models\ProceedLabs.Models.csproj" />
+    <ProjectReference Include="..\ProceedLabs.Repository\ProceedLabs.Repository.csproj" />
+  </ItemGroup>
+
+</Project>

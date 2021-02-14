@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.78" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.0.2" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ProceedLabs.Models\ProceedLabs.Models.csproj" />
+    <ProjectReference Include="..\ProceedLabs.Repository\ProceedLabs.Repository.csproj" />
+    <ProjectReference Include="..\ProceedLabs.Service\ProceedLabs.Service.csproj" />
+  </ItemGroup>
+
+
+</Project>

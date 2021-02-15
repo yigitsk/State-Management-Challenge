@@ -9,6 +9,6 @@ namespace ProceedCase.Entities
     public class FlowEntity:BaseEntity
     {
         public string Name { get; set; }
-        public List<FlowStatesEntity> FlowStates { get; set; }
+        //public List<FlowStatesEntity> FlowStates { get; set; }
     }
 }

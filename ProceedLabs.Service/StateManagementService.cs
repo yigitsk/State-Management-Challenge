@@ -29,11 +29,11 @@ namespace ProceedLabs.Service
             var task = await _unitOfWork.Tasks.Get(taskId);
             if (task.ActiveStateId != null && task.FlowId != null)
                 return false;
-            var flow = await _unitOfWork.Flows.Get(flowId);
-            if (!flow.FlowStates.Any())
+            var flowStates = await _unitOfWork.FlowStates.GetStatesByFlowId(flowId);
+            if (!flowStates.Any())
                 return false;
-            var firstState = flow.FlowStates.Find(x => x.Order == 1);
-            task.FlowId = flow.Id;
+            var firstState = flowStates.Where(x => x.Order == 1).FirstOrDefault();
+            task.FlowId = flowId;
             task.ActiveStateId = firstState.Id;
            
 

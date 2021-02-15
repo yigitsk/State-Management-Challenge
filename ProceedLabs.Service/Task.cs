@@ -12,7 +12,12 @@ namespace ProceedCase.Models.BusinessModels
         public string Name { get; set; }
         public FlowStateModel ActiveState { get; internal set; }
         public FlowModel Flow { get;internal set; }
-        public List<FlowStateModel> TaskHistory { get; set; }
+        public List<FlowStateModel> TaskHistory { get;internal set; }
+
+        public TaskAggregate()
+        {
+            this.TaskHistory = new List<FlowStateModel>();
+        }
 
         public void Next()
         {
@@ -40,6 +45,7 @@ namespace ProceedCase.Models.BusinessModels
             this.Flow = assignedToBe;
             var startingState = this.Flow.States.Find(x => x.Order == 1);
             this.ActiveState = startingState;
+            TaskHistory.Add(startingState);
         }
     }
 }

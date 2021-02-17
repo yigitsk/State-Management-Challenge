@@ -66,7 +66,7 @@ namespace ProceedCase.Repository
         public async Task<IEnumerable<StateEntity>> GetAll()
         {
             var sql = "SELECT * FROM States;";
-            var result = await Connection.QueryAsync<StateEntity>(sql, Transaction);
+            var result = await Connection.QueryAsync<StateEntity>(sql,transaction:Transaction);
             return result;
             /*using (var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
             {

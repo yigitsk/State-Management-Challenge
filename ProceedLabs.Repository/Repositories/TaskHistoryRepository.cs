@@ -26,7 +26,7 @@ namespace ProceedCase.Repository
         public async Task<int> Add(TaskHistoryEntity entity)
         {
             entity.CreatedOn = DateTime.Now;
-            var sql = "INSERT INTO TaskHistory (Id, TaskId, StateId, FlowId, Order,CreatedOn) Values (@Id, @TaskId, @StateId, @FlowId, @Order,@CreatedOn);";
+            var sql = "INSERT INTO TaskHistory (Id, TaskId, StateId, FlowId, [Order],CreatedOn) Values (@Id, @TaskId, @StateId, @FlowId, @Order,@CreatedOn);";
             var affectedRows = await Connection.ExecuteAsync(sql, new {Id = entity.Id,TaskId = entity.TaskId, StateId = entity.StateId,FlowId = entity.FlowId,Order=entity.Order,CreatedOn = entity.CreatedOn }, Transaction);
             return affectedRows;
             /*using (var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
@@ -66,7 +66,7 @@ namespace ProceedCase.Repository
         public async Task<IEnumerable<TaskHistoryEntity>> GetAll()
         {
             var sql = "SELECT * FROM TaskHistory;";
-            var result = await Connection.QueryAsync<TaskHistoryEntity>(sql, Transaction);
+            var result = await Connection.QueryAsync<TaskHistoryEntity>(sql, transaction: Transaction);
             return result;
             /*using (var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
             {

@@ -8,6 +8,5 @@ namespace ProceedCase.Models.Requests
     public class CreateTaskRequest
     {
         public string Name { get; set; }
-        public Guid FlowId { get; set; }
     }
 }

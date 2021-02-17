@@ -67,7 +67,7 @@ namespace ProceedCase.Repository
         public async Task<IEnumerable<FlowEntity>> GetAll()
         {
             var sql = "SELECT * FROM Flows;";
-            var result = await Connection.QueryAsync<FlowEntity>(sql,Transaction);
+            var result = await Connection.QueryAsync<FlowEntity>(sql, transaction: Transaction);
             return result;
             /*using (var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
             {

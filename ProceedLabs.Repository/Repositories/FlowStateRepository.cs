@@ -24,7 +24,7 @@ namespace ProceedCase.Repository
         public async Task<int> Add(FlowStatesEntity entity)
         {
             entity.CreatedOn = DateTime.Now;
-            var sql = "INSERT INTO FlowStates (Id, FlowId, StateId, Order, CreatedOn) Values (@Id, @FlowId, @StateId, @Order, @CreatedOn);";
+            var sql = "INSERT INTO FlowStates (Id, FlowId, StateId, [Order], CreatedOn) Values (@Id, @FlowId, @StateId, @Order, @CreatedOn);";
             var affectedRows = await Connection.ExecuteAsync(sql, new { Id = entity.Id, FlowId = entity.FlowId,StateId = entity.StateId, Order = entity.Order,CreatedOn = entity.CreatedOn}, Transaction);
             return affectedRows;
             /*using (var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
@@ -64,7 +64,7 @@ namespace ProceedCase.Repository
         public async Task<IEnumerable<FlowStatesEntity>> GetAll()
         {
             var sql = "SELECT * FROM FlowStates;";
-            var result = await Connection.QueryAsync<FlowStatesEntity>(sql, Transaction);
+            var result = await Connection.QueryAsync<FlowStatesEntity>(sql, transaction: Transaction);
             return result;
             /*using (var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
             {
@@ -76,7 +76,7 @@ namespace ProceedCase.Repository
 
         public async Task<IEnumerable<FlowStatesEntity>> GetStatesByFlowId(Guid flowId)
         {
-            var sql = "SELECT * FROM FlowStates where Flowd = @FlowId;";
+            var sql = "SELECT * FROM FlowStates where FlowId = @FlowId;";
             var result = await Connection.QueryAsync<FlowStatesEntity>(sql, new { FlowId = flowId }, Transaction);
             return result;
             /*using (var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
@@ -92,7 +92,7 @@ namespace ProceedCase.Repository
         {
             throw new NotImplementedException();
             entity.ModifiedOn = DateTime.Now;
-            var sql = "UPDATE FlowStates SET Order = @Order WHERE Id = @Id;";
+            var sql = "UPDATE FlowStates SET [Order] = @Order WHERE Id = @Id;";
             var affectedRows = await Connection.ExecuteAsync(sql, entity, Transaction);
             return affectedRows;
             /*using (var connection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
